@@ -37,7 +37,7 @@ for (j=0; j<N; j++){
 A[i][j] = i*N + j + 1;
 }
 }
-178 4 Concurrent Programming
+
 for (i=0; i<N; i++){ // show the matrix
 for (j=0; j<N; j++){
 printf("%4d ", A[i][j]);
@@ -84,7 +84,7 @@ printf("task %d tries to join with task %d\n",
 running->pid, pid[i]);
 join(pid[i], &status);
 }
-4.7 Programming Project: User-Level Threads 179
+
 printf("task %d : total = %d\n", me, total);
 }
 int create(void (*f)(), void *parm)
