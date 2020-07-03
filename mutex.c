@@ -12,8 +12,8 @@ return mp;
 void mutex_destroy(MUTEX *mp){ free(mp); }
 int mutex_lock(MUTEX *mp){ 
 if(mp->lock == 0){
-mp->loc=1;
-owner = running;
+mp->lock=1;
+mp->owner = running;
 }else{
 enqueue(&(mp->queue),running);
 tswitch();
@@ -28,7 +28,7 @@ mp->lock=0;
 mp->owner = 0;
 }
 else{
-proc *p = dequeue(mp->queue);
+PROC *p = dequeue(mp->queue);
 mp->owner = p;
 enqueue (&readyQueue,p);
 

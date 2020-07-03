@@ -17,7 +17,8 @@ PROC *p;
 for (i=0; i<NPROC; i++){
 p = &proc[i];
 p->pid = i;
-p->ppid = 1;
+p->joinPid = 0;
+p->joinPtr = 0;
 p->priority = 0;
 p->status = FREE;
 p->event = 0;
@@ -95,7 +96,6 @@ if (!p){
 printf("fork failed\n");
 return -1;
 }
-p->ppid = running->pid;
 p->status = READY;
 p->priority = 1;
 p->joinPid = 0;
