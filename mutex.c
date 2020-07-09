@@ -14,6 +14,7 @@ int mutex_lock(MUTEX *mp){
 if(mp->lock == 0){
 mp->lock=1;
 mp->owner = running;
+printf("Mutex Locked by: %d\n",running->pid);
 }else{
 enqueue(&(mp->queue),running);
 tswitch();
@@ -26,6 +27,7 @@ return -1;
 if(mp->queue == 0){
 mp->lock=0;
 mp->owner = 0;
+printf("Mutex Unlocked by: %d\n",running->pid);
 }
 else{
 PROC *p = dequeue(mp->queue);

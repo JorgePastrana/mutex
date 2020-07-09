@@ -66,7 +66,7 @@ s += A[row][i];
 printf("task %d update total with %d\n", me, s);
 mutex_lock(mp);
 total += s;
-printf("[total = %d] ", total);
+printf("[total = %d] \n", total);
 mutex_unlock(mp);
 }
 void task1(void *parm)
